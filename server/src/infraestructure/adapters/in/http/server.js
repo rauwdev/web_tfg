@@ -2,6 +2,7 @@ const express = require("express")
 const cors = require("cors")
 const cookieParser = require("cookie-parser")
 const helmet = require("helmet")
+const path = require("path")
 const userRouter = require("./userRouter")
 const errorHandler = require("./errorHandler")
 
@@ -17,12 +18,13 @@ app.use(cors({
 app.use(cookieParser())
 app.use(express.json())
 
-app.get("/", async function(req, res) {
-    res.sendStatus(200)
-})
-
 app.use("/api/user", userRouter)
 
+app.use(express.static(path.join(__dirname, "../../../../../client/dist")))
+
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../../../../../client/dist/index.html"))
+})
 
 app.use(errorHandler)
 module.exports = app
