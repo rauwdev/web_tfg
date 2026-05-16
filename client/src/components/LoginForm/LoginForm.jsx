@@ -1,5 +1,5 @@
 import "./LoginForm.css"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useAuth } from "../../context/AuthProvider"
 import { me as fetchMe, login as loginService } from "../../services/AuthService"
@@ -9,7 +9,7 @@ export default function LoginForm() {
     const [error, setError] = useState(null)
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const { login } = useAuth()
+    const { isAuth, login } = useAuth()
     const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
@@ -24,11 +24,17 @@ export default function LoginForm() {
         }
     }
 
+    useEffect(() => {
+        if (isAuth) {
+            navigate("/")
+        }
+    })
+
     return (
         <div className="login-page">
             <section className="login-card">
-                <h1>Iniciar sesion</h1>
-                <p className="login-subtitle">Accede a tu cuenta de Safe On Route</p>
+                <h1>Safe On Route</h1>
+                <p className="login-subtitle">Inicia sesión en tu cuenta</p>
                 {error && <p className="login-error">{error}</p>}
                 <form className="login-form" onSubmit={handleSubmit}>
                     <div className="form-group">

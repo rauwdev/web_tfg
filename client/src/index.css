@@ -15,6 +15,8 @@ html, body {
   /* Colores */
 
   --background: #FFFFFF;
+  --background-dark: #060E1A;
+  --nav-bar-bg: #0A1628;
   --color-primary: #0A1628;
   --color-accent: #2563EB;
   --color-accent-hover: #1D4ED8;

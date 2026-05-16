@@ -1,0 +1,104 @@
+.nav-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: var(--space-3) var(--space-6);
+}
+
+.nav-dashboard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--nav-bar-bg);
+    border-radius: 999px;
+    padding: var(--space-2) var(--space-2) var(--space-2) var(--space-4);
+    font-family: var(--font-family);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-marca {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    text-decoration: none;
+    color: var(--white);
+    font-size: var(--text-sm);
+    font-weight: 700;
+}
+
+.nav-marca img {
+    height: 28px;
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    list-style: none;
+}
+
+.nav-links a {
+    display: block;
+    padding: var(--space-1) var(--space-3);
+    text-decoration: none;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--gray-300);
+    transition: color var(--transition-fast);
+}
+
+.nav-links a:hover {
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+}
+
+.nav-links a.active {
+    color: var(--white);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.nav-signin {
+    text-decoration: none;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--gray-300);
+    transition: color var(--transition-fast);
+}
+
+.nav-signin:hover {
+    color: var(--white);
+}
+
+.nav-cta {
+    display: inline-block;
+    padding: var(--space-2) var(--space-4);
+    background: var(--color-accent);
+    color: var(--white);
+    text-decoration: none;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    border-radius: 999px;
+    transition: background var(--transition-fast);
+}
+
+.nav-cta:hover {
+    background: var(--color-accent-hover);
+}
+
+.nav-actions > * {
+    animation: navFadeIn 0.3s ease;
+}
+
+@keyframes navFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
