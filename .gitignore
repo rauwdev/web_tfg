@@ -143,6 +143,5 @@ vite.config.ts.timestamp-*
 .vite/
 
 .postman/
-.vscode/
 postman/
 SafeOnRoute_CSS_Guideline.pdf
