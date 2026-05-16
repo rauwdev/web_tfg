@@ -22,9 +22,9 @@ export default function NavBar() {
                     <p>Safe On Route</p>
                 </NavLink>
                 <ul className="nav-links">
-                    <li><NavLink to="/platform">Dashboard</NavLink></li>
+                    <li><NavLink to="/dashboard">Dashboard</NavLink></li>
                     <li><NavLink to="/technology">Tecnología</NavLink></li>
-                    <li><NavLink to="/specs">Sobre nosotros</NavLink></li>
+                    <li><NavLink to="/about-us">Sobre nosotros</NavLink></li>
                 </ul>
                 <div className="nav-actions">
                     {isAuth ? (
