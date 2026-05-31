@@ -1,0 +1,50 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Backend",
+            "type": "shell",
+            "command": "npm run dev",
+            "options": { "cwd": "${workspaceFolder}/server" },
+            "isBackground": true,
+            "problemMatcher": [],
+            "icon": { "id": "server", "color": "terminal.ansiGreen" },
+            "presentation": { "group": "main", "reveal": "always" }
+        },
+        {
+            "label": "Frontend",
+            "type": "shell",
+            "command": "npm run dev",
+            "options": { "cwd": "${workspaceFolder}/client" },
+            "isBackground": true,
+            "problemMatcher": [],
+            "icon": { "id": "browser", "color": "terminal.ansiCyan" },
+            "presentation": { "group": "main", "reveal": "always" }
+        },
+        {
+            "label": "Git",
+            "type": "shell",
+            "command": "powershell",
+            "isBackground": true,
+            "problemMatcher": [],
+            "icon": { "id": "github", "color": "terminal.ansiYellow" },
+            "presentation": { "group": "secondary", "reveal": "always" }
+        },
+        {
+            "label": "Sequelize CLI",
+            "type": "shell",
+            "command": "powershell",
+            "options": { "cwd": "${workspaceFolder}/server" },
+            "isBackground": true,
+            "problemMatcher": [],
+            "icon": { "id": "database", "color": "terminal.ansiMagenta" },
+            "presentation": { "group": "secondary", "reveal": "always" }
+        },
+        {
+            "label": "Dev",
+            "dependsOn": ["Backend", "Frontend", "Git", "Sequelize CLI"],
+            "runOptions": { "runOn": "folderOpen" },
+            "problemMatcher": []
+        }
+    ]
+}

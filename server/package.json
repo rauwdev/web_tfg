@@ -13,6 +13,7 @@
   "type": "commonjs",
   "dependencies": {
     "argon2": "^0.44.0",
+    "axios-cookiejar-support": "^7.0.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
@@ -24,7 +25,8 @@
     "mariadb": "^3.5.2",
     "morgan": "^1.10.1",
     "mysql2": "^3.22.3",
-    "sequelize": "^6.37.8"
+    "sequelize": "^6.37.8",
+    "tough-cookie": "^6.0.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.14",

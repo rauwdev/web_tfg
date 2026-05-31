@@ -26,6 +26,11 @@ class UserSequelizeRepository extends IUserRepository {
         return rows.map(row => new User(row.toJSON()))
     }
 
+    async findAllByRole(role) {
+        const rows = await UserModel.findAll({ where: { role } })
+        return rows.map(row => new User(row.toJSON()))
+    }
+
     async save(user) {
         const created = await UserModel.create(user)
         return new User(created.toJSON())

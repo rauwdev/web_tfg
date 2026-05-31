@@ -1,4 +1,4 @@
-const { register: registerUser, login: loginUseCase, userRepository } = require("../../../config/container")
+const { register: registerUser, login: loginUseCase, getCurrentUser, findAllByRole } = require("../../../config/container")
 
 async function register(req, res, next) {
     try {
@@ -16,7 +16,9 @@ async function login(req, res, next) {
         const { token } = await loginUseCase.execute({ email, password })
         res.cookie("token", token, {
             httpOnly: true,
-            sameSite: "strict"
+            sameSite: "strict",
+            secure: process.env.NODE_ENV === "production",
+            maxAge: 24 * 60 * 60 * 1000
         })
         res.status(200).json({ message: "Logged!" })
     } catch (error) {
@@ -24,14 +26,19 @@ async function login(req, res, next) {
     }
 }
 
+async function findAllUsersByRole(req, res, next) {
+    try {
+        const users = await findAllByRole.execute(req.query.role)
+        res.status(200).json(users)
+    } catch (error) {
+        next(error)
+    }
+}
+
 async function me(req, res, next) {
     try {
-        const user = await userRepository.findById(req.user.userId)
-        if (!user) {
-            return res.status(404).json({ message: "Usuario no encontrado" })
-        }
-        const { password, ...safeUser } = user
-        return res.status(200).json(safeUser)
+        const user = await getCurrentUser.execute(req.user.userId)
+        return res.status(200).json(user)
     } catch (error) {
         next(error)
     }
@@ -46,5 +53,6 @@ module.exports = {
     register,
     login,
     me,
+    findAllUsersByRole,
     logout
 }

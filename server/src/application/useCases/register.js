@@ -1,9 +1,9 @@
-const Password = require("../../infraestructure/services/password")
 const User = require("../../domain/entities/user")
 
 class Register {
-    constructor(userRepository) {
+    constructor(userRepository, Password) {
         this.userRepository = userRepository
+        this.Password = Password
     }
 
     async execute({ name, surname, email, password }) {
@@ -13,7 +13,7 @@ class Register {
             error.statusCode = 409
             throw error
         }
-        const hashedPassword = await Password.create(password)
+        const hashedPassword = await this.Password.create(password)
         const user = new User({
             name,
             surname,

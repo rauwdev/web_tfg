@@ -3,6 +3,10 @@ const app = require("./infraestructure/adapters/in/http/server")
 const sequelize = require("./infraestructure/config/db")
 require("./infraestructure/config/associations")
 
+process.on("unhandledRejection", (err) => {
+    console.error("UNHANDLED REJECTION:", err)
+})
+
 const PORT = process.env.PORT
 
 sequelize.authenticate()
