@@ -19,11 +19,11 @@ export default function Hero() {
                             emergencias. Todo integrado en una sola plataforma.
                         </p>
                         <div className="hero-actions">
-                            <NavLink to="/demo">
-                                <a className="hero-cta-primary">Solicitar un kit de prueba →</a>                    
+                            <NavLink to="/demo" className="hero-cta-primary">
+                                Solicitar un kit de prueba →
                             </NavLink>
-                            <NavLink to="/documentation">
-                                <a className="hero-cta-secondary">Ver documentación</a>
+                            <NavLink to="/documentation" className="hero-cta-secondary">
+                                Ver documentación
                             </NavLink>
                         </div>
                         <div className="hero-stats">

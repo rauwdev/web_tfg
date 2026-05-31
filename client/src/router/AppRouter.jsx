@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute"
 import PageTransition from "../components/PageTransition/PageTransition"
 import Login from "../pages/Login/Login"
 import MainLayout from "../layouts/MainLayout/MainLayout"
@@ -17,7 +18,9 @@ export default function AppRouter() {
                     <Route path="/login" element={ <Login /> }/>
                     <Route element={ <MainLayout /> } >
                         <Route path="/" element={ <Home /> }></Route>
-                        <Route path="/dashboard" element={ <Dashboard /> }></Route>
+                        <Route element={ <ProtectedRoute /> }>
+                            <Route path="/dashboard" element={ <Dashboard /> }></Route>
+                        </Route>
                         <Route path="/technology" element={ <Technology /> }></Route>
                         <Route path="/about-us" element={ <AboutUs /> }></Route>
                         <Route path="/demo" element={ <Demo /> }></Route>

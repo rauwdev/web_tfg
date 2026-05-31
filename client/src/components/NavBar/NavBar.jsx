@@ -22,7 +22,11 @@ export default function NavBar() {
                     <p>Safe On Route</p>
                 </NavLink>
                 <ul className="nav-links">
-                    <li><NavLink to="/dashboard">Dashboard</NavLink></li>
+                    {isAuth ? (
+                        <li><NavLink to="/dashboard">Dashboard</NavLink></li>
+                    ) : (
+                        <></>
+                    )}
                     <li><NavLink to="/technology">Tecnología</NavLink></li>
                     <li><NavLink to="/about-us">Sobre nosotros</NavLink></li>
                 </ul>
@@ -33,7 +37,7 @@ export default function NavBar() {
                         </>
                     ) : (
                         <>
-                            <NavLink to="/login" className="nav-signin">Sign in</NavLink>    
+                            <NavLink to="/login" className="nav-signin">Login</NavLink>    
                         </>
                     )}
                     <NavLink to="/demo" className="nav-cta">Reserva una demo</NavLink>

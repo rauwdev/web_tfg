@@ -28,7 +28,7 @@ export default function LoginForm() {
         if (isAuth) {
             navigate("/")
         }
-    })
+    }, [isAuth, navigate])
 
     return (
         <div className="login-page">
