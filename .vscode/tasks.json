@@ -24,7 +24,7 @@
         {
             "label": "Git",
             "type": "shell",
-            "command": "powershell",
+            "command": "bash",
             "isBackground": true,
             "problemMatcher": [],
             "icon": { "id": "github", "color": "terminal.ansiYellow" },
@@ -33,7 +33,7 @@
         {
             "label": "Sequelize CLI",
             "type": "shell",
-            "command": "powershell",
+            "command": "bash",
             "options": { "cwd": "${workspaceFolder}/server" },
             "isBackground": true,
             "problemMatcher": [],
