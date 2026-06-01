@@ -1,0 +1,97 @@
+.cta {
+    padding: var(--space-16) var(--space-6);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cta-card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-lg);
+    padding: var(--space-16) var(--space-6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-4);
+}
+
+.cta-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    padding: var(--space-1) var(--space-3);
+}
+
+.cta-badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-accent);
+}
+
+.cta-badge-text {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--gray-300);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.cta-title {
+    font-family: var(--font-family);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.15;
+}
+
+.cta-subtitle {
+    font-family: var(--font-family);
+    font-size: var(--text-base);
+    color: var(--gray-500);
+    max-width: 550px;
+    line-height: 1.6;
+}
+
+.cta-actions {
+    display: flex;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+}
+
+.cta-primary {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--white);
+    background: var(--color-accent);
+    padding: var(--space-3) var(--space-6);
+    border-radius: 999px;
+    text-decoration: none;
+    transition: background var(--transition-normal);
+}
+
+.cta-primary:hover {
+    background: var(--color-accent-hover);
+}
+
+.cta-secondary {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--white);
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: var(--space-3) var(--space-6);
+    border-radius: 999px;
+    text-decoration: none;
+    transition: border-color var(--transition-normal);
+}
+
+.cta-secondary:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+}

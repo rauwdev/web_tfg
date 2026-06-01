@@ -1,9 +1,8 @@
-import "./MainLayout.css"
+import "../MainLayout/MainLayout.css"
 import { Outlet } from "react-router-dom"
 import NavBar from "../../components/NavBar/NavBar"
-import Footer from "../../components/Footer/Footer"
 
-export default function MainLayout() {
+export default function NoFooterLayout() {
     return (
         <>
             <NavBar />
@@ -12,7 +11,6 @@ export default function MainLayout() {
                     <Outlet />
                 </main>
             </div>
-            <Footer />
         </>
     )
 }

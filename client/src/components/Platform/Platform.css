@@ -1,0 +1,188 @@
+.platform {
+    padding: var(--space-16) var(--space-6);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.platform-header {
+    margin-bottom: var(--space-10);
+}
+
+.platform-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+}
+
+.platform-badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-accent);
+}
+
+.platform-badge-text {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.platform-title {
+    font-family: var(--font-family);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: var(--space-4);
+}
+
+.platform-subtitle {
+    font-family: var(--font-family);
+    font-size: var(--text-base);
+    color: var(--gray-500);
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+.platform-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+}
+
+.platform-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.platform-card-tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.platform-card-title {
+    font-family: var(--font-family);
+    font-size: var(--text-xl);
+    font-weight: 600;
+    color: var(--white);
+}
+
+.platform-card-description {
+    font-family: var(--font-family);
+    font-size: var(--text-sm);
+    color: var(--gray-500);
+    line-height: 1.6;
+}
+
+.platform-card-specs {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-top: auto;
+}
+
+.platform-card-spec {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.platform-card-spec-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--gray-500);
+}
+
+.platform-card-spec-value {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--white);
+    text-align: right;
+}
+
+.platform-card-api {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    margin-top: auto;
+}
+
+.platform-card-endpoint {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.platform-card-method {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    min-width: 40px;
+    text-align: center;
+}
+
+.platform-card-method--post {
+    background: rgba(22, 163, 74, 0.2);
+    color: var(--color-success);
+}
+
+.platform-card-method--get {
+    background: rgba(59, 130, 246, 0.2);
+    color: var(--color-accent);
+}
+
+.platform-card-route {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--gray-300);
+}
+
+.platform-card-dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    margin-top: auto;
+}
+
+.platform-card-dashboard-row {
+    height: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.platform-card-bar {
+    height: 100%;
+    border-radius: 4px;
+}
+
+.platform-card-bar--accent {
+    background: rgba(59, 130, 246, 0.5);
+}
+
+.platform-card-bar--danger {
+    background: rgba(220, 38, 38, 0.5);
+}
+
+.platform-card-bar--muted {
+    background: rgba(255, 255, 255, 0.1);
+}
