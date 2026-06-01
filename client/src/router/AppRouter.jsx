@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute"
-import PageTransition from "../components/PageTransition/PageTransition"
+import ProtectedRoute from "../components/Misc/ProtectedRoute/ProtectedRoute"
+import PageTransition from "../components/Misc/PageTransition/PageTransition"
 import Login from "../pages/Login/Login"
 import MainLayout from "../layouts/MainLayout/MainLayout"
 import NoFooterLayout from "../layouts/NoFooterLayout/NoFooterLayout"

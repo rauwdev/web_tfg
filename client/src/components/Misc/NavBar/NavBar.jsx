@@ -1,8 +1,8 @@
 import "./NavBar.css"
-import logo from "../../assets/logo.svg"
+import logo from "../../../assets/logo.svg"
 import { NavLink, useNavigate } from "react-router-dom"
-import { useAuth } from "../../context/AuthProvider"
-import { logout as logoutService } from "../../services/AuthService"
+import { useAuth } from "../../../context/AuthProvider"
+import { logout as logoutService } from "../../../services/AuthService"
 
 export default function NavBar() {
     const { isAuth, logout } = useAuth()

@@ -1,8 +1,8 @@
 import "./LoginForm.css"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { useAuth } from "../../context/AuthProvider"
-import { me as fetchMe, login as loginService } from "../../services/AuthService"
+import { useAuth } from "../../../context/AuthProvider"
+import { me as fetchMe, login as loginService } from "../../../services/AuthService"
 
 
 export default function LoginForm() {

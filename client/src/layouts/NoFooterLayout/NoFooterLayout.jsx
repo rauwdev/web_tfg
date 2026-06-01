@@ -1,6 +1,6 @@
 import "../MainLayout/MainLayout.css"
 import { Outlet } from "react-router-dom"
-import NavBar from "../../components/NavBar/NavBar"
+import NavBar from "../../components/Misc/NavBar/NavBar"
 
 export default function NoFooterLayout() {
     return (
