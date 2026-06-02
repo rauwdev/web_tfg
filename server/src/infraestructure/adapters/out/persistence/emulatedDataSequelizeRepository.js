@@ -1,6 +1,7 @@
 const IEmulatedDataRepository = require("../../../../domain/repositories/IEmulatedDataRepository")
 const EmulatedData = require("../../../../domain/entities/emulatedData")
 const EmulatedDataModel = require("./emulatedDataModel")
+const { Op } = require("sequelize")
 
 class EmulatedDataSequelizeRepository extends IEmulatedDataRepository {
     async findById(id) {
@@ -12,6 +13,14 @@ class EmulatedDataSequelizeRepository extends IEmulatedDataRepository {
     async findAll() {
         const rows = await EmulatedDataModel.findAll()
         return rows.map(row => new EmulatedData(row.toJSON()))
+    }
+
+    async countSince(since) {
+        return await EmulatedDataModel.count({
+            where: {
+                createdAt: { [Op.gt]: since }
+            }
+        })
     }
 
     async save(emulatedData) {

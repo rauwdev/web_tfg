@@ -1,12 +1,14 @@
 import "./Insights.css"
 import { getAll as getAllAlerts } from "../../services/AlertsService"
 import { getAll as getAllVehicles } from "../../services/VehiclesService"
+import { getHourlyService } from "../../services/EmulatedDataService"
 import { useState } from "react"
 import { useEffect } from "react"
 
 export default function Insights() {
     const [vehicleCount, setVehicleCount] = useState(0)
     const [alertsToday, setAlertsToday] = useState(0)
+    const [emulatedDataCount, setEmulatedDataCount] = useState(0)
     const [fatalCount, setFatalCount] = useState(0)
     const [error, setError] = useState(false)
 
@@ -22,12 +24,15 @@ export default function Insights() {
                 const todayAlerts = alerts.filter(alert => new Date(alert.createdAt) >= today)
                 setAlertsToday(todayAlerts.length)
                 setFatalCount(todayAlerts.filter(alert => alert.severity === "fatal").length)
+
+                const emulatedData = await getHourlyService()
+                setEmulatedDataCount(emulatedData)
             } catch (error) {
                 setError(true)
             }
         }
         fetchInsights()
-        const interval = setInterval(fetchInsights, 5000)
+        const interval = setInterval(fetchInsights, 50)
         return () => clearInterval(interval)
     }, [])
 
@@ -47,7 +52,7 @@ export default function Insights() {
 
                 <div className="insight-card">
                     <span className="insight-card-label">Datos recibidos</span>
-                    <span className="insight-card-value">1,847<sub>/h</sub></span>
+                    <span className="insight-card-value"> {emulatedDataCount} <sub>Última hora</sub></span>
                 </div>
             </div>
         </>
