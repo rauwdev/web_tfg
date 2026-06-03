@@ -10,6 +10,7 @@ import AboutUs from "../pages/AboutUs/AboutUs"
 import Technology from "../pages/Technology/Technology"
 import Demo from "../pages/Demo/Demo"
 import Documentation from "../pages/Documentation/Documentation"
+import Log from "../pages/Log/Log"
 
 export default function AppRouter() {
     return (
@@ -20,6 +21,7 @@ export default function AppRouter() {
                     <Route element={ <NoFooterLayout /> } >
                         <Route element={ <ProtectedRoute /> }>
                             <Route path="/dashboard" element={ <Dashboard /> }></Route>
+                            <Route path="/logs" element={ <Log /> }></Route>
                         </Route>
                     </Route>
                     <Route element={ <MainLayout /> } >
