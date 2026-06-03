@@ -26,7 +26,7 @@ export default function CrashNotification() {
 
     useEffect(() => {
         let interval
-
+        let isMounted = true
         async function init() {
             try {
                 const data = await getLatest(0)
@@ -34,7 +34,9 @@ export default function CrashNotification() {
                     lastIdRef.current = Math.max(...data.map(a => a.alertId))
                 }
             } catch (error) {}
-            interval = setInterval(fetchAlerts, 500)
+            if (isMounted) {
+                interval = setInterval(fetchAlerts, 500)
+            }
         }
 
         async function fetchAlerts() {
@@ -48,7 +50,10 @@ export default function CrashNotification() {
         }
 
         init()
-        return () => clearInterval(interval)
+        return () => {
+            isMounted = false
+            clearInterval(interval)
+        }
     }, [])
 
     return (
