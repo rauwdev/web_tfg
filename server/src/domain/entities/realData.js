@@ -2,7 +2,7 @@ class RealData {
     constructor({
         realDataId, raw, pct, pctFiltered,
         accelX, accelY, accelZ, gyroX, gyroY,
-        impact, seatbelt, seat, vehicle
+        impact, seatbelt, seat, vehicle, createdAt
     }) {
         if (!vehicle) throw new Error("RealData requiere un vehicle")
         this.realDataId = realDataId
@@ -18,6 +18,7 @@ class RealData {
         this.seatbelt = seatbelt
         this.seat = seat
         this.vehicle = vehicle
+        this.createdAt = createdAt
     }
 }
 

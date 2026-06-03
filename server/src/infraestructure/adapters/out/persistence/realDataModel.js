@@ -68,7 +68,8 @@ const RealDataModel = sequelize.define("realData", {
     }
 }, {
     tableName: "realData",
-    timestamps: false
+    timestamps: true,
+    updatedAt: false
 })
 
 module.exports = RealDataModel

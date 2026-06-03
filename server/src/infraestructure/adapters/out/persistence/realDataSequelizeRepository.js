@@ -1,12 +1,35 @@
 const IRealDataRepository = require("../../../../domain/repositories/IRealDataRepository")
 const RealData = require("../../../../domain/entities/RealData")
 const RealDataModel = require("./realDataModel")
+const { Op } = require("sequelize")
 
 class RealDataSequelizeRepository extends IRealDataRepository {
     async findById(id) {
         const row = await RealDataModel.findByPk(id)
         if (!row) return null
         return new RealData(row.toJSON())
+    }
+
+    async findByCriteria({ vehicle, fromDate, toDate}) {
+        const where = {}
+        if (vehicle) {
+            where.vehicle = vehicle
+        }
+
+        if (fromDate && toDate) {
+            where.createdAt = { [Op.between]: [fromDate, toDate]}
+        } else if (fromDate) {
+            where.createdAt = { [Op.gte]: [fromDate] }
+        } else if (toDate) {
+            where.createdAt = { [Op.lte]: [toDate] }
+        }
+        
+        const rows = await RealDataModel.findAll({
+            where,
+            order: [["createdAt", "DESC"]]
+        })
+
+        return rows.map(row => new RealData(row.toJSON()))
     }
 
     async findAll() {

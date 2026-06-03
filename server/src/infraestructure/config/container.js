@@ -19,6 +19,7 @@ const ImpactAnalysisService = require("../../domain/services/impactAnalysisServi
 const DeleteVehicle = require("../../application/useCases/vehicle/deleteVehicle")
 const FindAllByRole = require("../../application/useCases/user/findAllByRole")
 const CreateRealData = require("../../application/useCases/realData/createRealData")
+const SearchRealData = require("../../application/useCases/realData/searchRealData")
 
 const userRepository = new UserSequelizeRepository()
 const emulatedDataRepository = new EmulatedDataSequelizeRepository()
@@ -39,6 +40,7 @@ const getCurrentUser = new GetCurrentUser(userRepository)
 const deleteVehicle = new DeleteVehicle(vehicleRepository)
 const findAllByRole =  new FindAllByRole(userRepository)
 const createRealData = new CreateRealData(realDataRepository)
+const searchRealData = new SearchRealData(realDataRepository)
 
 module.exports = {
     register,
@@ -51,5 +53,6 @@ module.exports = {
     getCurrentUser,
     deleteVehicle,
     findAllByRole,
+    searchRealData,
     login
 }
