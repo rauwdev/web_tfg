@@ -20,6 +20,7 @@ const DeleteVehicle = require("../../application/useCases/vehicle/deleteVehicle"
 const FindAllByRole = require("../../application/useCases/user/findAllByRole")
 const CreateRealData = require("../../application/useCases/realData/createRealData")
 const SearchRealData = require("../../application/useCases/realData/searchRealData")
+const GetHourlyCount = require("../../application/useCases/emulatedData/getHourlyCount")
 
 const userRepository = new UserSequelizeRepository()
 const emulatedDataRepository = new EmulatedDataSequelizeRepository()
@@ -41,6 +42,7 @@ const deleteVehicle = new DeleteVehicle(vehicleRepository)
 const findAllByRole =  new FindAllByRole(userRepository)
 const createRealData = new CreateRealData(realDataRepository)
 const searchRealData = new SearchRealData(realDataRepository)
+const getHourlyCount = new GetHourlyCount(emulatedDataRepository)
 
 module.exports = {
     register,
@@ -54,5 +56,6 @@ module.exports = {
     deleteVehicle,
     findAllByRole,
     searchRealData,
+    getHourlyCount,
     login
 }

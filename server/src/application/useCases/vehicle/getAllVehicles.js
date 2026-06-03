@@ -18,6 +18,7 @@ class GetAllVehicles {
                 })
                 : []
             vehicle.alertCount = todayAlerts.length
+            vehicle.alertData = todayAlerts
             return vehicle
         })
     }
