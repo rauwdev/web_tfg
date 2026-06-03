@@ -29,7 +29,8 @@ class CreateEmulatedData {
                 crash: saved.emulatedDataId,
                 vehicle: saved.vehicle,
                 zone: impact.zoneName,
-                severity: impact.severity
+                severity: impact.severity,
+                type: "emulated"
             })
         }
         return saved

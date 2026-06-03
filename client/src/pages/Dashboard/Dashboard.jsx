@@ -25,7 +25,6 @@ export default function Dashboard() {
                     <>
                         <Insights
                             mode = {mode}
-                            setMode = {setMode}
                         />
                         <VehiclesGrid
                             mode = {mode}
@@ -38,7 +37,6 @@ export default function Dashboard() {
                         <>
                             <Insights
                                 mode = {mode}
-                                setMode = {setMode}
                             />
                             <VehiclesGrid
                                 mode = {mode}
@@ -57,7 +55,6 @@ export default function Dashboard() {
                         <>
                             <Insights
                                 mode = {mode}
-                                setMode = {setMode}
                             />
                             <VehiclesGrid
                                 mode = {mode}
@@ -70,7 +67,6 @@ export default function Dashboard() {
                             <>
                                 <Insights
                                     mode = {mode}
-                                    setMode = {setMode}
                                 />
                                 <VehiclesGrid
                                     mode = {mode}

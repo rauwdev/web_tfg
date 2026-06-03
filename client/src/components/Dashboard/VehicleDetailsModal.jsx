@@ -44,7 +44,7 @@ export default function VehicleDetailsModal({ vehicle, onClose, onDelete }) {
                             <div className="vehicle-details-modal-alert-list">
                                 {vehicle.alertData.map(alert => (
                                     <div key={alert.alertId} className="vehicle-details-modal-alert-item">
-                                        <span className="vehicle-details-modal-value">#{alert.alertId}</span>
+                                        <span className="vehicle-details-modal-value">#{alert.alertId} {alert.type === "emulated" ? "(emulada)" : alert.type === "real" ? "(real)" : ""}</span>
                                         <span className="vehicle-details-modal-label">
                                             {new Date(alert.createdAt).toLocaleTimeString("es-ES")}
                                         </span>

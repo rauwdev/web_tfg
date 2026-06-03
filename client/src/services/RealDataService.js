@@ -10,3 +10,8 @@ export async function search({ vehicle, fromDate, toDate }) {
     })
     return response.data
 }
+
+export async function getRealHourlyService() {
+    const response = await api.get("/realData/countHourly")
+    return response.data
+}

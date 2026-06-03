@@ -1,5 +1,5 @@
 class Alert {
-    constructor({ alertId, crash, vehicle, zone, severity, createdAt }) {
+    constructor({ alertId, crash, vehicle, zone, severity, createdAt, type }) {
         if (!vehicle) throw new Error("Alert requiere un vehiculo")
         if (!zone) throw new Error("Alert requiere una zona")
 
@@ -14,6 +14,7 @@ class Alert {
         this.zone = zone
         this.severity = severity
         this.createdAt = createdAt
+        this.type = type
     }
 }
 

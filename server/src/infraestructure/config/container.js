@@ -21,6 +21,7 @@ const FindAllByRole = require("../../application/useCases/user/findAllByRole")
 const CreateRealData = require("../../application/useCases/realData/createRealData")
 const SearchRealData = require("../../application/useCases/realData/searchRealData")
 const GetHourlyCount = require("../../application/useCases/emulatedData/getHourlyCount")
+const GetRealHourlyCount = require("../../application/useCases/realData/getHourlyCount")
 
 const userRepository = new UserSequelizeRepository()
 const emulatedDataRepository = new EmulatedDataSequelizeRepository()
@@ -43,6 +44,7 @@ const findAllByRole =  new FindAllByRole(userRepository)
 const createRealData = new CreateRealData(realDataRepository)
 const searchRealData = new SearchRealData(realDataRepository)
 const getHourlyCount = new GetHourlyCount(emulatedDataRepository)
+const getRealHourlyCount = new GetRealHourlyCount(realDataRepository)
 
 module.exports = {
     register,
@@ -57,5 +59,6 @@ module.exports = {
     findAllByRole,
     searchRealData,
     getHourlyCount,
+    getRealHourlyCount,
     login
 }

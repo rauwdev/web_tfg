@@ -70,6 +70,9 @@ export default function CrashNotification() {
                             <span className="alert-toast-detail">
                                 {a.vehicleData?.plate} · {a.vehicleData?.ownerData?.name} {a.vehicleData?.ownerData?.surname}
                             </span>
+                            <span className="alert-toast-detail">
+                                Tipo de alerta: {a.type === "emulated" ? "Emulada" : "Real"}
+                            </span>
                             <span className={`alert-toast-severity alert-toast-severity--${a.severity}`}>{a.severity.toUpperCase()}</span>
                             <button className={`alert-toast-emergency--${a.severity}`} onClick={() => setPopUp(a)} >Contactar con emergencias</button>
                         </div>

@@ -1,4 +1,4 @@
-const { createRealData, searchRealData } = require("../../../config/container")
+const { createRealData, searchRealData, getRealHourlyCount } = require("../../../config/container")
 
 async function create(req, res, next) {
     try {
@@ -22,7 +22,17 @@ async function search(req, res, next) {
     }
 }
 
+async function countHourly(req, res, next) {
+    try {
+        const count = await getRealHourlyCount.execute()
+        res.status(200).json(count)
+    } catch (error) {
+        next(error)
+    }
+}
+
 module.exports = {
     create,
+    countHourly,
     search
 }

@@ -32,6 +32,14 @@ class RealDataSequelizeRepository extends IRealDataRepository {
         return rows.map(row => new RealData(row.toJSON()))
     }
 
+    async countSince(since) {
+        return await RealDataModel.count({
+            where: {
+                createdAt: { [Op.gt]: since }
+            }
+        })
+    }
+
     async findAll() {
         const rows = await RealDataMode.findAll()
         return rows.map(row => new RealData(row.toJSON()))

@@ -22,6 +22,11 @@ const AlertModel = sequelize.define("alert", {
     severity: {
         type: DataTypes.STRING,
         allowNull: false
+    },
+    type: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        defaultValue: "real"
     }
 }, {
     tableName: "alerts",
