@@ -5,7 +5,7 @@ import { getHourlyService } from "../../services/EmulatedDataService"
 import { useState } from "react"
 import { useEffect } from "react"
 
-export default function Insights() {
+export default function Insights({ mode, setMode }) {
     const [vehicleCount, setVehicleCount] = useState(0)
     const [alertsToday, setAlertsToday] = useState(0)
     const [emulatedDataCount, setEmulatedDataCount] = useState(0)
@@ -32,7 +32,7 @@ export default function Insights() {
             }
         }
         fetchInsights()
-        const interval = setInterval(fetchInsights, 50)
+        const interval = setInterval(fetchInsights, 3000)
         return () => clearInterval(interval)
     }, [])
 

@@ -1,0 +1,177 @@
+.vehicle-details-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: vehicleDetailsModalFadeIn 0.2s ease;
+}
+
+.vehicle-details-modal {
+    background: var(--nav-bar-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    min-width: 400px;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.vehicle-details-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.vehicle-details-modal-title {
+    font-family: var(--font-mono);
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: 0.05em;
+}
+
+.vehicle-details-modal-close {
+    background: none;
+    border: none;
+    color: var(--gray-500);
+    cursor: pointer;
+    font-size: var(--text-lg);
+    padding: 0;
+    line-height: 1;
+    transition: color var(--transition-fast);
+}
+
+.vehicle-details-modal-close:hover {
+    color: var(--white);
+}
+
+.vehicle-details-modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.vehicle-details-modal-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.vehicle-details-modal-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.vehicle-details-modal-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.vehicle-details-modal-value {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--white);
+}
+
+.vehicle-details-modal-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.vehicle-details-modal-alert-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    max-height: 150px;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.vehicle-details-modal-alert-list::-webkit-scrollbar {
+    display: none;
+}
+
+.vehicle-details-modal-alert-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-2);
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius-md);
+}
+
+.vehicle-details-modal-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.vehicle-details-modal-delete {
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(220, 38, 38, 0.3);
+    background: rgba(220, 38, 38, 0.1);
+    color: var(--color-danger);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: background var(--transition-normal);
+}
+
+.vehicle-details-modal-delete:hover {
+    background: rgba(220, 38, 38, 0.2);
+}
+
+.vehicle-details-modal-dismiss {
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: transparent;
+    color: var(--gray-500);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    cursor: pointer;
+    width: 100%;
+    transition: border-color var(--transition-normal);
+}
+
+.vehicle-details-modal-dismiss:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.vehicle-details-modal-status {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    padding: var(--space-1) var(--space-2);
+    border-radius: 999px;
+    font-weight: 600;
+}
+
+.vehicle-details-modal-status--active {
+    background: rgba(22, 163, 74, 0.15);
+    color: var(--color-success);
+}
+
+.vehicle-details-modal-status--inactive {
+    background: rgba(107, 114, 128, 0.15);
+    color: var(--gray-500);
+}
+
+@keyframes vehicleDetailsModalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

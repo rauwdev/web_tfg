@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useState, useEffect } from "react"
 import { useAuth } from "../../context/AuthProvider"
 import "./Dashboard.css"
 import Insights from "../../components/Dashboard/Insights"
@@ -7,9 +7,12 @@ import CrashNotification from "../../components/CrashNotification/CrashNotificat
 
 export default function Dashboard() {
     const { user, loading } = useAuth()
+    const [mode, setMode] = useState("emulated")
     const isAdmin = user?.role === "admin"
     const isProf = user?.role === "professional"
     const isClient = user?.role === "client"
+    const isRealMode = mode === "real"
+    const isEmulatedMode = mode === "emulated"
 
     useEffect(() => {
         
@@ -18,18 +21,67 @@ export default function Dashboard() {
     return (
         <>
             {isAdmin ? (
-                <>
-                    <Insights />
-                    <VehiclesGrid />
-                    <CrashNotification />
-                </>
-            ) : (
-                isProf ? (
+                isEmulatedMode ? (
                     <>
-                        <Insights />
-                        <VehiclesGrid />
+                        <Insights
+                            mode = {mode}
+                            setMode = {setMode}
+                        />
+                        <VehiclesGrid
+                            mode = {mode}
+                            setMode = {setMode}
+                        />
                         <CrashNotification />
                     </>
+                ) : (
+                    isRealMode ? (
+                        <>
+                            <Insights
+                                mode = {mode}
+                                setMode = {setMode}
+                            />
+                            <VehiclesGrid
+                                mode = {mode}
+                                setMode = {setMode}
+                            />  
+                            <CrashNotification />
+                        </>
+                    ) : (
+                        <></>
+                    )
+                )
+                
+            ) : (
+                isProf ? (
+                    isEmulatedMode ? (
+                        <>
+                            <Insights
+                                mode = {mode}
+                                setMode = {setMode}
+                            />
+                            <VehiclesGrid
+                                mode = {mode}
+                                setMode = {setMode}
+                            />
+                            <CrashNotification />
+                        </>
+                    ) : (
+                        isRealMode ? (
+                            <>
+                                <Insights
+                                    mode = {mode}
+                                    setMode = {setMode}
+                                />
+                                <VehiclesGrid
+                                    mode = {mode}
+                                    setMode = {setMode}
+                                />  
+                                <CrashNotification />
+                            </>
+                        ) : (
+                            <></>
+                        )
+                    )
                 ) : (
                     isClient ? (
                         <>

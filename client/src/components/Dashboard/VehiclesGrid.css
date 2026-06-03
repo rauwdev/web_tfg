@@ -14,6 +14,13 @@
     letter-spacing: 0.05em;
 }
 
+.vehicles-section-actions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
 .vehicles-section-add {
     font-family: var(--font-mono);
     font-size: var(--text-xs);
@@ -22,6 +29,10 @@
     border: 1px solid rgba(59, 130, 246, 0.3);
     border-radius: var(--radius-md);
     padding: var(--space-1) var(--space-3);
+    min-height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     transition: background var(--transition-normal);
 }
@@ -32,9 +43,25 @@
 
 .vehicles-section-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: var(--space-2);
     margin-bottom: var(--space-4);
+}
+
+.vehicles-section-logs img {
+    width: 18px;
+    height: 18px;
+    display: block;
+}
+
+.vehicles-section-state {
+    margin-left: auto;
+}
+
+.vehicles-section-state img {
+    width: 18px;
+    height: 18px;
+    display: block;
 }
 
 .vehicles-grid {
@@ -147,235 +174,4 @@
 
 .vehicle-card-alerts--danger {
     color: var(--color-danger);
-}
-
-.vehicle-popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: vehiclePopupFadeIn 0.2s ease;
-}
-
-.vehicle-popup {
-    background: var(--nav-bar-bg);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: var(--radius-lg);
-    padding: var(--space-6);
-    min-width: 400px;
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-}
-
-.vehicle-popup-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.vehicle-popup-title {
-    font-family: var(--font-mono);
-    font-size: var(--text-lg);
-    font-weight: 600;
-    color: var(--white);
-    letter-spacing: 0.05em;
-}
-
-.vehicle-popup-close {
-    background: none;
-    border: none;
-    color: var(--gray-500);
-    cursor: pointer;
-    font-size: var(--text-lg);
-    padding: 0;
-    line-height: 1;
-    transition: color var(--transition-fast);
-}
-
-.vehicle-popup-close:hover {
-    color: var(--white);
-}
-
-.vehicle-popup-body {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-}
-
-.vehicle-popup-section {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-}
-
-.vehicle-popup-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.vehicle-popup-label {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--gray-500);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.vehicle-popup-value {
-    font-family: var(--font-mono);
-    font-size: var(--text-sm);
-    color: var(--white);
-}
-
-.vehicle-popup-divider {
-    height: 1px;
-    background: rgba(255, 255, 255, 0.06);
-}
-
-.vehicle-popup-alert-list {
-display: flex;
-    flex-direction: column;
-    gap: var(--space-1);
-    max-height: 150px;
-    overflow-y: auto;
-    scrollbar-width: none;
-}
-
-.vehicle-popup-alert-list::-webkit-scrollbar {
-    display: none;
-}
-
-.vehicle-popup-alert-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--space-2);
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: var(--radius-md);
-}
-
-.vehicle-popup-actions {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-}
-
-.vehicle-popup-delete {
-    padding: var(--space-3) var(--space-4);
-    border-radius: var(--radius-md);
-    border: 1px solid rgba(220, 38, 38, 0.3);
-    background: rgba(220, 38, 38, 0.1);
-    color: var(--color-danger);
-    font-family: var(--font-mono);
-    font-size: var(--text-sm);
-    font-weight: 600;
-    cursor: pointer;
-    width: 100%;
-    transition: background var(--transition-normal);
-}
-
-.vehicle-popup-delete:hover {
-    background: rgba(220, 38, 38, 0.2);
-}
-
-.vehicle-popup-dismiss {
-    padding: var(--space-2) var(--space-4);
-    border-radius: var(--radius-md);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: transparent;
-    color: var(--gray-500);
-    font-family: var(--font-mono);
-    font-size: var(--text-sm);
-    cursor: pointer;
-    width: 100%;
-    transition: border-color var(--transition-normal);
-}
-
-.vehicle-popup-dismiss:hover {
-    border-color: rgba(255, 255, 255, 0.3);
-}
-
-@keyframes vehiclePopupFadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.vehicle-register-form {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-}
-
-.vehicle-register-field {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-}
-
-.vehicle-register-input {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: var(--radius-md);
-    padding: var(--space-2) var(--space-3);
-    color: var(--white);
-    font-family: var(--font-mono);
-    font-size: var(--text-sm);
-    outline: none;
-    transition: border-color var(--transition-normal);
-}
-
-.vehicle-register-input:focus {
-    border-color: var(--color-accent);
-}
-
-.vehicle-register-input::placeholder {
-    color: var(--gray-500);
-}
-
-.vehicle-register-submit {
-    padding: var(--space-3) var(--space-4);
-    border-radius: var(--radius-md);
-    border: none;
-    background: rgba(59, 130, 246, 0.8);
-    color: var(--white);
-    font-family: var(--font-mono);
-    font-size: var(--text-sm);
-    font-weight: 600;
-    cursor: pointer;
-    width: 100%;
-    transition: background var(--transition-normal);
-}
-
-.vehicle-register-submit:hover {
-    background: rgba(59, 130, 246, 1);
-}
-
-.vehicle-register-select {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: var(--radius-md);
-    padding: var(--space-2) var(--space-3);
-    color: var(--white);
-    font-family: var(--font-mono);
-    font-size: var(--text-sm);
-    outline: none;
-    transition: border-color var(--transition-normal);
-}
-
-.vehicle-register-select:focus {
-    border-color: var(--color-accent);
-}
-
-.vehicle-register-select option {
-    background: var(--nav-bar-bg);
-    color: var(--white);
 }
