@@ -1,9 +1,12 @@
 import "./Documentation.css"
+import DocumentationHeader from "../../components/Documentation/DocumentationHeader/DocumentationHeader"
+import DocumentsList from "../../components/Documentation/DocumentsList/DocumentsList"
 
 export default function Documentation() {
     return (
         <>
-            <h1>DOCUMENTATION</h1>
+            <DocumentationHeader />
+            <DocumentsList />
         </>
     )
 }
