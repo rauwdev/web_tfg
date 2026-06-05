@@ -2,8 +2,8 @@ const { createVehicle, getAllVehicles, deleteVehicle } = require("../../../confi
 
 async function create(req, res, next) {
     try {
-        const { owner, plate } = req.body
-        const vehicle = await createVehicle.execute({ owner, plate })
+        const { owner, plate, manufacturer, model } = req.body
+        const vehicle = await createVehicle.execute({ owner, plate, manufacturer, model })
         res.status(201).json(vehicle)
     } catch (error) {
         next(error)

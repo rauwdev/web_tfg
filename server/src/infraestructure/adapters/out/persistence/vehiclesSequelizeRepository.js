@@ -16,7 +16,7 @@ class VehiclesSequelizeRepository extends IVehiclesRepository {
         const rows = await VehiclesModel.findAll({
             include: [
                 { model: UserModel, as: "ownerData", attributes: ["name", "surname", "email"] },
-                { model: AlertModel, as: "alertData", attributes: ["alertId", "createdAt"] }
+                { model: AlertModel, as: "alertData", attributes: ["alertId", "createdAt", "type"] }
             ]
         })
         return rows.map(row => new Vehicle(row.toJSON()))

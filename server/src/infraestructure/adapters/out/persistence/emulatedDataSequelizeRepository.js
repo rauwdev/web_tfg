@@ -15,6 +15,30 @@ class EmulatedDataSequelizeRepository extends IEmulatedDataRepository {
         return rows.map(row => new EmulatedData(row.toJSON()))
     }
 
+    async findByCriteria({ vehicle, fromDate, toDate, limit = 15, offset = 0 }) {
+        const where = {}
+        if (vehicle) {
+            where.vehicle = vehicle
+        }
+
+        if (fromDate && toDate) {
+            where.createdAt = { [Op.between]: [fromDate, toDate]}
+        } else if (fromDate) {
+            where.createdAt = { [Op.gte]: [fromDate] }
+        } else if (toDate) {
+            where.createdAt = { [Op.lte]: [toDate] }
+        }
+        
+        const rows = await EmulatedDataModel.findAll({
+            where,
+            order: [["createdAt", "DESC"]],
+            limit: parseInt(limit),
+            offset: parseInt(offset)
+        })
+
+        return rows.map(row => new EmulatedData(row.toJSON()))
+    }
+
     async countSince(since) {
         return await EmulatedDataModel.count({
             where: {

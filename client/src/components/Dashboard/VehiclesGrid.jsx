@@ -25,9 +25,9 @@ export default function VehiclesGrid({ mode, setMode }) {
         } catch (error) {}
     }
 
-    async function handleVehicleRegister({ owner, plate }) {
+    async function handleVehicleRegister({ owner, plate, manufacturer, model }) {
         try {
-            await createVehicleService({ owner, plate })
+            await createVehicleService({ owner, plate, manufacturer, model })
         } catch (error) {}
     }
 
@@ -38,7 +38,7 @@ export default function VehiclesGrid({ mode, setMode }) {
         }
         fetchVehicles()
         
-        const interval = setInterval(fetchVehicles, 1000)
+        const interval = setInterval(fetchVehicles, 2000)
         return () => clearInterval(interval)
     }, [])
 
@@ -46,7 +46,7 @@ export default function VehiclesGrid({ mode, setMode }) {
         <>
             <div className="vehicles-section">
                 <div className="vehicles-section-header">
-                    <span className="vehicles-section-title">Flota de vehículos</span>
+                    <span className="vehicles-section-title">Flota de vehículos {mode === "real" ? "(Datos reales)" : "(Datos emulados)"} </span>
                     <div className="vehicles-section-actions">
                         {mode === "real" ? (
                             <NavLink className="vehicles-section-add vehicles-section-state" onClick={() => setMode("emulated")}>
@@ -72,7 +72,7 @@ export default function VehiclesGrid({ mode, setMode }) {
                         return (
                             <div key={vehicle.vehicleId} className="vehicle-card" onClick={() => setVehicleCardPopUp(vehicle)}>
                                 <div className="vehicle-card-header">
-                                    <span className="vehicle-card-plate">{vehicle.plate}</span>
+                                    <span className="vehicle-card-plate">{vehicle.plate} · {vehicle.manufacturer} {vehicle.model}</span>
                                     <span className={`vehicle-card-status ${vehicle.status ? "vehicle-card-status--active" : "vehicle-card-status--inactive"}`}>
                                         {vehicle.status ? "ACTIVO" : "INACTIVO"}
                                     </span>

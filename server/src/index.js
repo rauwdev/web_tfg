@@ -13,7 +13,7 @@ sequelize.authenticate()
     .then(() => {
         console.log("Conectado a la database")
         app.listen(PORT, () => {
-            console.log(`Servidor corriendo en http://13.36.174.103:${PORT}`)
+            console.log(`Servidor corriendo en http://localhost:${PORT}`)
         })
     })
     .catch(err => {

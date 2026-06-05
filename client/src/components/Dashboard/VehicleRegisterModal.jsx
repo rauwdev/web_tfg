@@ -6,10 +6,12 @@ export default function VehicleRegisterModal({ onClose, onSubmit }) {
     const [clients, setClients] = useState([])
     const [owner, setOwner] = useState("")
     const [plate, setPlate] = useState("")
+    const [manufacturer, setManufacturer] = useState("")
+    const [model, setModel] = useState("")
 
     async function handleVehicleRegister() {
         try {
-            await onSubmit({owner: Number(owner), plate })
+            await onSubmit({owner: Number(owner), plate, manufacturer, model })
             onClose()
         } catch (error) {}
     }
@@ -55,6 +57,30 @@ export default function VehicleRegisterModal({ onClose, onSubmit }) {
                                 value={plate}
                                 onChange={(e) => setPlate(e.target.value)}
                                 placeholder="Ej: 1234 ABC"
+                                required
+                            />
+                        </div>
+                        <div className="vehicle-register-modal-field">
+                            <label className="vehicle-register-modal-label" htmlFor="manufacturer">Fabricante</label>
+                            <input
+                                className="vehicle-register-modal-input"
+                                type="text"
+                                name="plate"
+                                value={manufacturer}
+                                onChange={(e) => setManufacturer(e.target.value)}
+                                placeholder="Ej: KIA"
+                                required
+                            />
+                        </div>
+                        <div className="vehicle-register-modal-field">
+                            <label className="vehicle-register-modal-label" htmlFor="model">Modelo</label>
+                            <input
+                                className="vehicle-register-modal-input"
+                                type="text"
+                                name="plate"
+                                value={model}
+                                onChange={(e) => setModel(e.target.value)}
+                                placeholder="Ej: SOUL"
                                 required
                             />
                         </div>

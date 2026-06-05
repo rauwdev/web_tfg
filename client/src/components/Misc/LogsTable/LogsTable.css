@@ -84,7 +84,7 @@
 }
 
 .logs-filter-clear {
-    padding: var(--space-2) var(--space-4);
+    padding: var(--space-2);
     border-radius: var(--radius-md);
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: transparent;
@@ -92,13 +92,22 @@
     font-family: var(--font-mono);
     font-size: var(--text-sm);
     cursor: pointer;
-    transition: border-color var(--transition-normal), color var(--transition-normal);
+    transition: border-color var(--transition-normal), background var(--transition-normal);
     height: fit-content;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .logs-filter-clear:hover {
     border-color: rgba(255, 255, 255, 0.3);
-    color: var(--white);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.logs-filter-clear img {
+    width: 18px;
+    height: 18px;
+    display: block;
 }
 
 .logs-table-wrapper {
@@ -139,12 +148,14 @@
     font-weight: 600;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     white-space: nowrap;
+    text-align: center;
 }
 
 .logs-table td {
     padding: var(--space-3);
     color: var(--gray-300);
     border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    text-align: center;
 }
 
 .logs-table tbody tr {
@@ -197,6 +208,44 @@
 .logs-table-badge--warn {
     background: rgba(220, 38, 38, 0.15);
     color: var(--color-danger);
+}
+
+.logs-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+    padding-top: var(--space-3);
+}
+
+.logs-pagination-btn {
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: transparent;
+    color: var(--gray-300);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    cursor: pointer;
+    transition: border-color var(--transition-normal), background var(--transition-normal);
+}
+
+.logs-pagination-btn:hover:not(:disabled) {
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--white);
+}
+
+.logs-pagination-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.logs-pagination-page {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--gray-500);
 }
 
 .logs-empty {

@@ -35,7 +35,7 @@ export default function CrashNotification() {
                 }
             } catch (error) {}
             if (isMounted) {
-                interval = setInterval(fetchAlerts, 500)
+                interval = setInterval(fetchAlerts, 2000)
             }
         }
 

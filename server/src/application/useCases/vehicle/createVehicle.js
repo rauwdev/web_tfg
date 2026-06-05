@@ -5,7 +5,7 @@ class CreateVehicle {
         this.vehicleRepository = vehicleRepository
     }
 
-    async execute({ owner, plate }) {
+    async execute({ owner, plate, manufacturer, model }) {
         const existingVehicle = await this.vehicleRepository.findByPlate(plate)
         if (existingVehicle) {
             const error = new Error("La patente ya se encuentra registrada")
@@ -14,7 +14,9 @@ class CreateVehicle {
         }
         const vehicle = new Vehicle({
             owner,
-            plate
+            plate,
+            manufacturer,
+            model
         })
         return await this.vehicleRepository.save(vehicle)
     }

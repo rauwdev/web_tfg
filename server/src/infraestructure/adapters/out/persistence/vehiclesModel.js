@@ -19,6 +19,16 @@ const VehiclesModel = sequelize.define("vehicles", {
         type: DataTypes.BOOLEAN,
         allowNull: false,
         defaultValue: true
+    },
+    manufacturer: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        defaultValue: "N/A"
+    },
+    model: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        defaultValue: "N/A"
     }
 }, {
     tableName: "vehicles",

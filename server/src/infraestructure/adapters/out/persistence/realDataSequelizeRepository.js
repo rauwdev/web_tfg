@@ -1,6 +1,7 @@
 const IRealDataRepository = require("../../../../domain/repositories/IRealDataRepository")
 const RealData = require("../../../../domain/entities/RealData")
 const RealDataModel = require("./realDataModel")
+const VehiclesModel = require("./vehiclesModel")
 const { Op } = require("sequelize")
 
 class RealDataSequelizeRepository extends IRealDataRepository {
@@ -10,7 +11,7 @@ class RealDataSequelizeRepository extends IRealDataRepository {
         return new RealData(row.toJSON())
     }
 
-    async findByCriteria({ vehicle, fromDate, toDate}) {
+    async findByCriteria({ vehicle, fromDate, toDate, limit = 15, offset = 0 }) {
         const where = {}
         if (vehicle) {
             where.vehicle = vehicle
@@ -26,7 +27,14 @@ class RealDataSequelizeRepository extends IRealDataRepository {
         
         const rows = await RealDataModel.findAll({
             where,
-            order: [["createdAt", "DESC"]]
+            order: [["createdAt", "DESC"]],
+            include: {
+                model: VehiclesModel,
+                as: "vehicleData",
+                attributes: ["plate"]
+            },
+            limit: parseInt(limit),
+            offset: parseInt(offset)
         })
 
         return rows.map(row => new RealData(row.toJSON()))

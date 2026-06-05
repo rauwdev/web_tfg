@@ -12,10 +12,12 @@ async function create(req, res, next) {
 
 async function search(req, res, next) {
     try {
+        const page = parseInt(req.query.page) || 1
+        const limit = parseInt(req.query.limit) || 15
         const { vehicle, from: fromDate, to: toDate } = req.query
         const vehicleId = vehicle ? Number(vehicle) : undefined
 
-        const dataList = await searchRealData.execute({ vehicle, fromDate, toDate })
+        const dataList = await searchRealData.execute({ vehicle, fromDate, toDate, page, limit })
         res.status(200).json(dataList)
     } catch (error) {
         next(error)
