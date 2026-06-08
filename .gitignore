@@ -144,4 +144,5 @@ vite.config.ts.timestamp-*
 
 .postman/
 postman/
-SafeOnRoute_CSS_Guideline.pdf
+arduino/
+.vscode/
