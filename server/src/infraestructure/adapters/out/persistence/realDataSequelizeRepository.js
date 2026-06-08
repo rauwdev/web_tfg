@@ -1,5 +1,5 @@
 const IRealDataRepository = require("../../../../domain/repositories/IRealDataRepository")
-const RealData = require("../../../../domain/entities/RealData")
+const RealData = require("../../../../domain/entities/realData")
 const RealDataModel = require("./realDataModel")
 const VehiclesModel = require("./vehiclesModel")
 const { Op } = require("sequelize")
