@@ -1,9 +1,9 @@
 import api from "../utils/apiClient"
 
-export async function searchRealData({ vehicle, fromDate, toDate, page, limit }) {
+export async function searchRealData({ plate, fromDate, toDate, page, limit }) {
     const response = await api.get(`/realData/search`, {
         params: {
-            vehicle,
+            plate,
             from: fromDate,
             to: toDate,
             page,

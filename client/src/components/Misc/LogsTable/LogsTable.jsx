@@ -10,6 +10,9 @@ export default function LogsTable() {
     const [mode, setMode] = useState("emulated")
     const [realLogs, setRealLogs] = useState([])
     const [emulatedLogs, setEmulatedLogs] = useState([])
+    const [filterPlate, setFilterPlate] = useState("")
+    const [filterFrom, setFilterFrom] = useState("")
+    const [filterTo, setFilterTo] = useState("")
     const [page, setPage] = useState(1)
     const limit = 15
 
@@ -47,7 +50,11 @@ export default function LogsTable() {
     ]
 
     const emulatedColumns = [
-        { key: "vehicle", label: "Vehículo" },
+        {
+            key: "vehicle",
+            label: "Vehículo",
+            render: (row) => row.vehicleData?.plate ?? row.vehicle
+        },
         { key: "brake", label: "Pedal de freno" },
         { key: "accelX", label: "Acelerómetro (X)" },
         { key: "accelY", label: "Acelerómetro (Y)" },
@@ -83,10 +90,10 @@ export default function LogsTable() {
         async function fetchLogs() {
             try {
                 if (mode === "real") {
-                    const data = await searchRealData({ page, limit })
+                    const data = await searchRealData({ plate: filterPlate, fromDate: filterFrom, toDate: filterTo, page, limit })
                     setRealLogs(data)
                 } else if (mode === "emulated") {
-                    const data = await searchEmulatedData({ page, limit })
+                    const data = await searchEmulatedData({ plate: filterPlate, fromDate: filterFrom, toDate: filterTo, page, limit })
                     setEmulatedLogs(data)
                 }
             } catch (error) {}
@@ -94,7 +101,7 @@ export default function LogsTable() {
         fetchLogs()
         const interval = setInterval(fetchLogs, 2000)
         return () => clearInterval(interval)
-    }, [mode, page])
+    }, [mode, page, filterPlate, filterFrom, filterTo])
 
     useEffect(() => {
         setPage(1)
@@ -104,28 +111,41 @@ export default function LogsTable() {
         <div className="logs-section">
             <div className="logs-section-header">
                 <span className="logs-section-title">Logs de telemetría {mode === "real" ? "(Datos reales)" : "(Datos emulados)"}</span>
-                <span className="logs-section-count">0 registros</span>
             </div>
 
             <div className="logs-filters">
                 <div className="logs-filter-field">
                     <label className="logs-filter-label">Vehículo</label>
-                    <select className="logs-filter-select">
-                        <option value="">Todos</option>
-                    </select>
+                    <input
+                        type="text"
+                        className="logs-filter-input"
+                        placeholder="Buscar patente..."
+                        value={filterPlate}
+                        onChange={(e) => setFilterPlate(e.target.value)}
+                    />
                 </div>
 
                 <div className="logs-filter-field">
                     <label className="logs-filter-label">Desde</label>
-                    <input type="datetime-local" className="logs-filter-input" />
+                    <input
+                        type="date"
+                        className="logs-filter-input"
+                        value={filterFrom}
+                        onChange={(e) => setFilterFrom(e.target.value)}
+                    />
                 </div>
 
                 <div className="logs-filter-field">
                     <label className="logs-filter-label">Hasta</label>
-                    <input type="datetime-local" className="logs-filter-input" />
+                    <input
+                        type="date"
+                        className="logs-filter-input"
+                        value={filterTo}
+                        onChange={(e) => setFilterTo(e.target.value)}
+                    />
                 </div>
 
-                <button className="logs-filter-clear">
+                <button className="logs-filter-clear" onClick={() => { setFilterPlate(""); setFilterFrom(""); setFilterTo("") }}>
                     <img src={Trash} />
                 </button>
                 {mode === "real" ? (
@@ -136,7 +156,7 @@ export default function LogsTable() {
                     mode === "emulated" ? (
                         <button className="logs-filter-clear" onClick={() => setMode("real")}>
                             <img src={RealIcon} />
-                        </button>  
+                        </button>
                     ) : (
                         <></>
                     )

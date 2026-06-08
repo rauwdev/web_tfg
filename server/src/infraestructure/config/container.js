@@ -16,6 +16,7 @@ const GetAllAlerts = require("../../application/useCases/alerts/getAllAlerts")
 const GetLatestAlerts = require("../../application/useCases/alerts/getLatestAlerts")
 const GetCurrentUser = require("../../application/useCases/user/getCurrentUser")
 const ImpactAnalysisService = require("../../domain/services/impactAnalysisService")
+const RealImpactAnalysisService = require("../../domain/services/realImpactAnalysisService")
 const DeleteVehicle = require("../../application/useCases/vehicle/deleteVehicle")
 const FindAllByRole = require("../../application/useCases/user/findAllByRole")
 const CreateRealData = require("../../application/useCases/realData/createRealData")
@@ -24,6 +25,7 @@ const GetHourlyCount = require("../../application/useCases/emulatedData/getHourl
 const GetRealHourlyCount = require("../../application/useCases/realData/getHourlyCount")
 const SearchEmulatedData = require("../../application/useCases/emulatedData/searchEmulatedData")
 
+
 const userRepository = new UserSequelizeRepository()
 const emulatedDataRepository = new EmulatedDataSequelizeRepository()
 const vehicleRepository = new VehiclesSequelizeRepository()
@@ -31,6 +33,7 @@ const alertsRepository = new AlertsSequelizeRepository()
 const realDataRepository = new RealDataSequelizeRepository()
 
 const impactAnalysisService = new ImpactAnalysisService()
+const realImpactAnalysisService = new RealImpactAnalysisService()
 
 const register = new Register(userRepository, Password)
 const login = new Login(userRepository, Password, Token)
@@ -42,11 +45,12 @@ const getLatestAlerts = new GetLatestAlerts(alertsRepository)
 const getCurrentUser = new GetCurrentUser(userRepository)
 const deleteVehicle = new DeleteVehicle(vehicleRepository)
 const findAllByRole =  new FindAllByRole(userRepository)
-const createRealData = new CreateRealData(realDataRepository)
+const createRealData = new CreateRealData(realDataRepository, alertsRepository, realImpactAnalysisService)
 const searchRealData = new SearchRealData(realDataRepository)
 const getHourlyCount = new GetHourlyCount(emulatedDataRepository)
 const getRealHourlyCount = new GetRealHourlyCount(realDataRepository)
 const searchEmulatedData = new SearchEmulatedData(emulatedDataRepository)
+
 
 module.exports = {
     register,

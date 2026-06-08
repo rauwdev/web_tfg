@@ -5,7 +5,7 @@ class EmulatedData {
         rearLeftSeatKg, rearRightSeatKg, impactFrontLeft, impactFrontCenter, impactFrontRight,
         impactLeftSideFront, impactLeftSideCenter, impactLeftSideRear, impactRightSideFront,
         impactRightSideCenter, impactRightSideRear, impactRearLeft, impactRearCenter, impactRearRight,
-        brake, accelX, accelY, accelZ, gyroX, gyroY, gyroZ, vehicle
+        brake, accelX, accelY, accelZ, gyroX, gyroY, gyroZ, vehicle, vehicleData
      }) {
         if (!vehicle) throw new Error("EmulatedData requiere un vehicle")
         this.emulatedDataId = emulatedDataId
@@ -41,6 +41,7 @@ class EmulatedData {
         this.gyroY = gyroY
         this.gyroZ = gyroZ
         this.vehicle = vehicle
+        this.vehicleData = vehicleData
     }
 }
 

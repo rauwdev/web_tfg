@@ -11,27 +11,30 @@ class RealDataSequelizeRepository extends IRealDataRepository {
         return new RealData(row.toJSON())
     }
 
-    async findByCriteria({ vehicle, fromDate, toDate, limit = 15, offset = 0 }) {
+    async findByCriteria({ plate, fromDate, toDate, limit = 15, offset = 0 }) {
         const where = {}
-        if (vehicle) {
-            where.vehicle = vehicle
-        }
 
         if (fromDate && toDate) {
             where.createdAt = { [Op.between]: [fromDate, toDate]}
         } else if (fromDate) {
-            where.createdAt = { [Op.gte]: [fromDate] }
+            where.createdAt = { [Op.gte]: fromDate }
         } else if (toDate) {
-            where.createdAt = { [Op.lte]: [toDate] }
+            where.createdAt = { [Op.lte]: toDate }
         }
         
+        const includeWhere = {}
+        if (plate) {
+            includeWhere.plate = { [Op.like]: `%${plate}%` }
+        }
+
         const rows = await RealDataModel.findAll({
             where,
             order: [["createdAt", "DESC"]],
             include: {
                 model: VehiclesModel,
                 as: "vehicleData",
-                attributes: ["plate"]
+                attributes: ["plate"],
+                where: Object.keys(includeWhere).length > 0 ? includeWhere: undefined
             },
             limit: parseInt(limit),
             offset: parseInt(offset)

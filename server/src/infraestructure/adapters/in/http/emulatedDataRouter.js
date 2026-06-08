@@ -9,4 +9,5 @@ router.post("/create", authMiddleware, createEmulatedDataValidation, validate, c
 router.get("/search", authMiddleware, search)
 router.get("/countHourly", authMiddleware, countHourly)
 
+
 module.exports = router

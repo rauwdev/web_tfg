@@ -86,13 +86,12 @@ export default function VehiclesGrid({ mode, setMode }) {
                                         <span className="vehicle-card-label">Contacto</span>
                                         <span className="vehicle-card-value">{vehicle.ownerData.email}</span>
                                     </div>
-                                </div>
-                                <div className="vehicle-card-divider"></div>
-                                <div className="vehicle-card-footer">
-                                    <span className="vehicle-card-last-seen">Hace 4s</span>
-                                    <span className={`vehicle-card-alerts ${vehicle.alertCount > 0 ? "vehicle-card-alerts--danger" : ""}`}>
-                                    {vehicle.alertCount} {vehicle.alertCount === 1 ? "alerta" : "alertas"}
-                                    </span>
+                                    <div className="vehicle-card-row">
+                                        <span className="vehicle-card-label">Alertas</span>
+                                        <span className={`vehicle-card-alerts ${vehicle.alertCount > 0 ? "vehicle-card-alerts--danger" : ""}`}>
+                                            {vehicle.alertCount}
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         ) 

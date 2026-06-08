@@ -5,10 +5,10 @@ export async function getHourlyService() {
     return response.data
 }
 
-export async function searchEmulatedData({ vehicle, fromDate, toDate, page, limit }) {
+export async function searchEmulatedData({ plate, fromDate, toDate, page, limit }) {
     const response = await api.get(`/emulatedData/search`, {
         params: {
-            vehicle,
+            plate,
             from: fromDate,
             to: toDate,
             page,

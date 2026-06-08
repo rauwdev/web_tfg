@@ -3,10 +3,10 @@ class SearchRealData {
         this.realDataRepository = realDataRepository
     }
 
-    async execute({ vehicle, fromDate, toDate, page = 1, limit = 15 }) {
+    async execute({ plate, fromDate, toDate, page = 1, limit = 15 }) {
         const offset = (page - 1) * limit
 
-        const dataList = await this.realDataRepository.findByCriteria({ vehicle, fromDate, toDate, limit, offset })
+        const dataList = await this.realDataRepository.findByCriteria({ plate, fromDate, toDate, limit, offset })
         return dataList
     }
 }

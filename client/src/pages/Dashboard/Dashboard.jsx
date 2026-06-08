@@ -4,6 +4,9 @@ import "./Dashboard.css"
 import Insights from "../../components/Dashboard/Insights"
 import VehiclesGrid from "../../components/Dashboard/VehiclesGrid"
 import CrashNotification from "../../components/CrashNotification/CrashNotification"
+import DemoFaq from "../../components/Demo/DemoFaq/DemoFaq"
+import DemoForm from "../../components/Demo/DemoForm/DemoForm"
+import DemoHero from "../../components/Demo/DemoHero/DemoHero"
 
 export default function Dashboard() {
     const { user, loading } = useAuth()
@@ -81,7 +84,9 @@ export default function Dashboard() {
                 ) : (
                     isClient ? (
                         <>
-                        
+                            <DemoHero />
+                            <DemoForm />
+                            <DemoFaq />
                         </>
                     ) : (
                         <>
