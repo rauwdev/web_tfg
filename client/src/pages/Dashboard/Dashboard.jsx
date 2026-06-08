@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { useAuth } from "../../context/AuthProvider"
 import "./Dashboard.css"
 import Insights from "../../components/Dashboard/Insights"
@@ -16,10 +16,6 @@ export default function Dashboard() {
     const isClient = user?.role === "client"
     const isRealMode = mode === "real"
     const isEmulatedMode = mode === "emulated"
-
-    useEffect(() => {
-        
-    })
 
     return (
         <>
