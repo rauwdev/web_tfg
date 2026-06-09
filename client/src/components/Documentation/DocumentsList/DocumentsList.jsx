@@ -4,27 +4,43 @@ import "./DocumentsList.css"
 const documents = [
     {
         id: "manual-usuario",
-        title: "Manual de usuario",
-        description: "Guía completa para usar la plataforma, registrar vehículos y consultar telemetría.",
-        file: "/documents/prueba.pdf",
-        size: "2.4 MB",
-        pages: 42
+        title: "Memoria",
+        description: "Memoria completa sobre el proyecto intermodular.",
+        file: "/documents/PI.26SMR.09_memoria.pdf",
+        size: "1.2 MB",
+        pages: 14
     },
     {
-        id: "especificaciones",
-        title: "Especificaciones hardware",
-        description: "Detalles técnicos del dispositivo embarcado: sensores, conectividad y protocolos.",
-        file: "/documentos/especificaciones.pdf",
+        id: "anexo1",
+        title: "Anexo 1: Hardware",
+        description: "Detalles ténicos sobre la solución propuesta en hardware y su funcionamiento.",
+        file: "/documents/PI.26SMR.09_anexo_1.pdf",
+        size: "xx MB",
+        pages: 0
+    },
+    {
+        id: "anexo2",
+        title: "Anexo 2: Desarrollo web",
+        description: "Detalles técnicos sobre el desarrollo de la aplicación web.",
+        file: "/documents/PI.26SMR.09_anexo_2.pdf",
+        size: "1.3 MB",
+        pages: 11
+    },
+    {
+        id: "anexo3",
+        title: "Anexo 3: Puesta en producción",
+        description: "Detalles ténicos sobre la puesta en producción de la aplicación web.",
+        file: "/documents/PI.26SMR.09_anexo_3.pdf",
         size: "1.1 MB",
-        pages: 18
+        pages: 4
     },
     {
-        id: "privacidad",
-        title: "Política de privacidad",
-        description: "Tratamiento de datos personales y de telemetría conforme al RGPD.",
-        file: "/documentos/privacidad.pdf",
-        size: "320 KB",
-        pages: 8
+        id: "presupuesto",
+        title: "Presupuesto",
+        description: "Detalles sobre la partida presupuestaria necesaria para el desarrollo del producto.",
+        file: "/documents/PI.26SMR.09_presupuesto.pdf",
+        size: "4.6 MB",
+        pages: 3
     }
 ]
 

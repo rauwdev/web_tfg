@@ -24,7 +24,7 @@ export default function DocumentationHeader() {
 
                 <div className="documentation-header-stats">
                     <div className="documentation-header-stat">
-                        <span className="documentation-header-stat-value">12</span>
+                        <span className="documentation-header-stat-value">5</span>
                         <span className="documentation-header-stat-label">Documentos</span>
                     </div>
                     <div className="documentation-header-stat-divider"></div>
