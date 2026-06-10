@@ -3,12 +3,12 @@ import "./DocumentsList.css"
 
 const documents = [
     {
-        id: "manual-usuario",
+        id: "memoria",
         title: "Memoria",
         description: "Memoria completa sobre el proyecto intermodular.",
         file: "/documents/PI.26SMR.09_memoria.pdf",
         size: "1.2 MB",
-        pages: 14
+        pages: 18
     },
     {
         id: "anexo1",
