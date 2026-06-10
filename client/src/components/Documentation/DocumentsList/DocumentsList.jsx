@@ -15,8 +15,8 @@ const documents = [
         title: "Anexo 1: Hardware",
         description: "Detalles ténicos sobre la solución propuesta en hardware y su funcionamiento.",
         file: "/documents/PI.26SMR.09_anexo_1.pdf",
-        size: "xx MB",
-        pages: 0
+        size: "1.3 MB",
+        pages: 5
     },
     {
         id: "anexo2",
