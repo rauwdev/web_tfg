@@ -6,7 +6,7 @@ const documents = [
         id: "memoria",
         title: "Memoria",
         description: "Memoria completa sobre el proyecto intermodular.",
-        file: "/documents/PI.26SMR.09_memoria.pdf",
+        file: "/documents/PI.25SMR.09_memoria.pdf",
         size: "1.2 MB",
         pages: 18
     },
@@ -14,7 +14,7 @@ const documents = [
         id: "anexo1",
         title: "Anexo 1: Hardware",
         description: "Detalles ténicos sobre la solución propuesta en hardware y su funcionamiento.",
-        file: "/documents/PI.26SMR.09_anexo_1.pdf",
+        file: "/documents/PI.25SMR.09_anexo_1.pdf",
         size: "1.3 MB",
         pages: 5
     },
@@ -22,7 +22,7 @@ const documents = [
         id: "anexo2",
         title: "Anexo 2: Desarrollo web",
         description: "Detalles técnicos sobre el desarrollo de la aplicación web.",
-        file: "/documents/PI.26SMR.09_anexo_2.pdf",
+        file: "/documents/PI.25SMR.09_anexo_2.pdf",
         size: "1.3 MB",
         pages: 11
     },
@@ -30,7 +30,7 @@ const documents = [
         id: "anexo3",
         title: "Anexo 3: Puesta en producción",
         description: "Detalles ténicos sobre la puesta en producción de la aplicación web.",
-        file: "/documents/PI.26SMR.09_anexo_3.pdf",
+        file: "/documents/PI.25SMR.09_anexo_3.pdf",
         size: "1.1 MB",
         pages: 4
     },
@@ -38,7 +38,7 @@ const documents = [
         id: "presupuesto",
         title: "Presupuesto",
         description: "Detalles sobre la partida presupuestaria necesaria para el desarrollo del producto.",
-        file: "/documents/PI.26SMR.09_presupuesto.pdf",
+        file: "/documents/PI.25SMR.09_presupuesto.pdf",
         size: "4.6 MB",
         pages: 3
     }
