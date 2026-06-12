@@ -8,7 +8,7 @@ const documents = [
         description: "Memoria completa sobre el proyecto intermodular.",
         file: "/documents/PI.25SMR.09_memoria.pdf",
         size: "1.2 MB",
-        pages: 18
+        pages: 20
     },
     {
         id: "anexo1",
